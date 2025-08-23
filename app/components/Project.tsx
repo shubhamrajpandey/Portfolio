@@ -7,7 +7,7 @@ const projects = [
     description:
       "A full-stack task management web application built using the MERN stack (MongoDB, Express.js, React, Node.js). This project allows users to create, edit, delete, and organize personal or team tasks in a user-friendly dashboard. Implemented Google Authentication using OAuth 2.0 for secure login and user session management. Features include real-time task updates, status filters (To Do, In Progress, Done).",
     image: "/icons/tasktracker.png",
-    github: "https://github.com/shubhamrajpandey/Task-Tracker.git", 
+    github: "https://github.com/shubhamrajpandey/Task-Tracker.git",
   },
   {
     id: "02",
@@ -29,7 +29,7 @@ const projects = [
     id: "04",
     title: "Java-Based Banking Management System",
     description:
-      "Developed a console-based Banking System using Core Java, focusing on basic banking operations such as account creation, deposit, withdrawal, balance inquiry, and transaction history. The system supports multiple users and ensures secure data handling using object-oriented programming principles like encapsulation, inheritance, and polymorphism. ",
+      "Developed a console-based Banking System using Core Java, focusing on basic banking operations such as account creation, deposit, withdrawal, balance inquiry, and transaction history. The system supports multiple users and ensures secure data handling using object-oriented programming principles like encapsulation, inheritance, and polymorphism.",
     image: "/icons/BankngSystem.png",
     github: "https://github.com/shubhamrajpandey/BankingApplication",
   },
@@ -37,13 +37,16 @@ const projects = [
 
 function Projects() {
   return (
-    <div className="bg-white text-black py-20 px-4">
+    <div  id="projects" className="bg-white text-black dark:bg-gray-900 dark:text-white py-20 px-4 transition-colors duration-500">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-center text-4xl font-semibold mb-12">
-          My <span className="font-bold text-black">Projects</span>
+          My{" "}
+          <span className="font-bold text-black dark:text-green-400">
+            Projects
+          </span>
         </h2>
 
-        <div className="grid gap-30">
+        <div className="space-y-20">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -51,19 +54,24 @@ function Projects() {
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
-
+              {/* Image */}
               <div className="w-full md:w-1/2">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-lg shadow-lg w-full"
+                  className="rounded-lg shadow-lg w-full hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
-              <div className="w-full ">
-                <h3 className="text-3xl font-bold mb-2">{project.id}</h3>
-                <h4 className="text-xl font-semibold mb-3">{project.title}</h4>
-                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+              {/* Content */}
+              <div className="w-full md:w-1/2">
+                <h3 className="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+                  {project.id}
+                </h3>
+                <h4 className="text-xl font-semibold mb-3 text-gray-900 dark:text-green-400">
+                  {project.title}
+                </h4>
+                <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed mb-4">
                   {project.description}
                 </p>
 
@@ -72,7 +80,7 @@ function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-2 text-sm font-medium text-blue-600 hover:underline"
+                    className="inline-block mt-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
                   >
                     🔗 View on GitHub
                   </a>
